@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dashboard Page -->
+    <section id="dashboard-page">
+        <div class="dashboard-header">
+            <h2>Healthcare Dashboard</h2>
+        </div>
+        <div class="recent-patients">
+            <h3>Recent Patient Records</h3>
+            <ul id="patient-list">
+                <!-- Patient records will be dynamically inserted here -->
+                <li>John Doe - 01/01/2023 - Flu</li>
+                <li>Juan Dela Cruz - 02/01/2023 - Cold</li>
+                <li>Michael Jackson - 03/01/2023 - Allergy</li>
+                <li>Bong Bong Duterte - 04/01/2023 - Check-up</li>
+                <li>Sara Marcos - 05/01/2023 - Vaccination</li>
+            </ul>
+        </div>
+        <div class="quick-access-buttons">
+            <button onclick="addNewPatient()">Add New Patient Record</button>
+            <button onclick="searchPatient()">Search Patient</button>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
