@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <section id="login-page">
+        <div class="login-container">
+            <img src="clinic-logo.png" alt="Clinic Logo" class="logo">
+            <form id="login-form">
+                <h2><center>Login</center></h2>
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const loginType = document.getElementById('login-type').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (loginType === 'user') {
+                // Handle user login
+                console.log('User login:', username, password);
+            } else if (loginType === 'admin') {
+                // Handle admin login
+                console.log('Admin login:', username, password);
+            } else {
+                alert('Please select a login type.');
+            }
+        });
+    </script>
+
+<script src="script.js"></script>
+</body>
+</html>

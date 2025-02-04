@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient List Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <!-- Patient List Page -->
+     <section id="patient-list-page">
+        <h2>Patient List</h2>
+        <input type="text" id="search-patient" placeholder="Search Patient">
+        <table id="patient-table">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Age</th>
+                    <th>Last Visit Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Patients will be dynamically populated here -->
+                <li>John Doe - 01/01/2023 - Flu</li>
+                <li>Juan Dela Cruz - 02/01/2023 - Cold</li>
+                <li>Michael Jackson - 03/01/2023 - Allergy</li>
+                <li>Bong Bong Duterte - 04/01/2023 - Check-up</li>
+                <li>Sara Marcos - 05/01/2023 - Vaccination</li>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Patient Page -->
+    <section id="patient-page">
+        <h2>Patient Details</h2>
+        <div class="patient-info">
+            <div class="patient-summary">
+                <h3>Patient Info</h3>
+                <p>Name: <span id="patient-name">John Doe</span></p>
+                <p>Age: <span id="patient-age">45</span></p>
+                <p>Contact: <span id="patient-contact">+1234567890</span></p>
+                <p>Last Visit: <span id="last-visit">Jan 15, 2025</span></p>
+                <p>Patient ID: <span id="patient-id">12345</span></p>
+                <button onclick="editPatient()">Edit</button>
+            </div>
+
+    
+            <script src="script.js"></script>
+</body>
+</html>
