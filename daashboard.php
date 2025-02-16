@@ -1,7 +1,9 @@
 <?php
 
     include "db-connection.php";
-
+    
+    // Start the session
+    session_start();
 ?>
 
 <!DOCTYPE html>
