@@ -63,7 +63,7 @@
         <a class="navbar-brand" href="daashboard.php">Healthcare System</a>
 
         <div class="ml-auto">
-            <a class="patient-list text-white mr-3 font-weight-bold" href="patient-list.php">Patient List</a>
+            <a class="patient-list text-white mr-3 font-weight-bold" href="patient_list.php">Patient List</a>
             <a class="btn btn-danger" href="logout.php">Log out</a>
         </div>
 
