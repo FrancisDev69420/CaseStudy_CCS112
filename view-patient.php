@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
 
-        <a class="navbar-brand" href="daashboard.php">Healthcare System</a>
+        <a class="navbar-brand" href="dashboard.php">Healthcare System</a>
 
         <div class="ml-auto">
             <a class="patient-list text-white mr-3 font-weight-bold" href="patient_list.php">Patient List</a>
