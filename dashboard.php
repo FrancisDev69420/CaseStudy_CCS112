@@ -4,6 +4,13 @@
     
     // Start the session
     session_start();
+
+    
+    $searchInput = "";
+    // Check if the search form is submitted
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $searchInput = isset($_POST['searchInput'])?$_POST['searchInput']:"";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -67,8 +74,8 @@
             <a class="btn btn-primary mr-2" href="add-patient.php">Add New Patient Record</a>
 
             <!-- Search Form -->
-            <form class="form-inline" action="search-results.php" method="GET">
-                <input class="form-control mr-2" type="search" name="query" placeholder="Search patient..." required>
+            <form class="form-inline" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                <input class="form-control mr-2" type="search" name="searchInput" placeholder="Search patient..." required>
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -89,7 +96,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
+                        <?php
+                            if(!empty($searchInput)) {
+                                $query = "SELECT * FROM patients WHERE first_name LIKE '%$searchInput%' OR last_name LIKE '%$searchInput%' OR contact_info LIKE '%$searchInput%'";
+                            }else{
+                                $query = "SELECT * FROM patients ORDER BY last_visit DESC LIMIT 5";
+                            }
+
+                            $result = mysqli_query($conn, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                echo "<td>" . $row['first_name'] . " " .  $row['last_name'] . "</td>";
+                                echo "<td>" . $row['age'] . "</td>";
+                                echo "<td>" . $row['last_visit'] . "</td>";
+                                echo "<td>
+                                        <a href='view-patient.php?id=" . $row['patient_id'] . "' class='btn btn-info btn-sm'>View</a>
+                                        <a href='edit-patient.php?id=" . $row['patient_id'] . "' class='btn btn-warning btn-sm'>Edit</a>
+                                        <a href='delete-patient.php?id=" . $row['patient_id'] . "' class='btn btn-danger btn-sm' onclick='return confirm(\"Are you sure you want to delete this patient?\");'>Delete</a>
+                                    </td>";
+                                echo "</tr>";
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>
