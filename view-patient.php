@@ -1,35 +1,44 @@
 <?php
 
-include "db-connection.php";
+    include "db-connection.php";
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
+    // Start the session
+        session_start();
 
-    $patient_id = $_GET['id'];
-
-    // Fetch patient data
-    $sql = "SELECT * FROM patients WHERE patient_id = $patient_id";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        $patient = $result->fetch_assoc();
-    } else {
-        echo "<script>alert('Patient not found');</script>";
-        header("Location: patient_list.php");
+    // Check if the user is logged in
+    if (!isset($_SESSION['username'])) {
+        header("Location: login.php");
         exit();
     }
 
-    // Fetch SOAP data
-    $sqlSoap = "SELECT * FROM soap_notes WHERE patient_id = $patient_id";
-    $resultSoap = $conn->query($sqlSoap);
+    if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['id'])) {
 
-    if ($resultSoap->num_rows > 0) {
-        $soap = $resultSoap->fetch_assoc();
-    } else {
-        echo "<script>alert('SOAP notes not found');</script>";
-        header("Location: patient_list.php");
-        exit();
+        $patient_id = $_GET['id'];
+
+        // Fetch patient data
+        $sql = "SELECT * FROM patients WHERE patient_id = $patient_id";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $patient = $result->fetch_assoc();
+        } else {
+            echo "<script>alert('Patient not found');</script>";
+            header("Location: patient_list.php");
+            exit();
+        }
+
+        // Fetch SOAP data
+        $sqlSoap = "SELECT * FROM soap_notes WHERE patient_id = $patient_id";
+        $resultSoap = $conn->query($sqlSoap);
+
+        if ($resultSoap->num_rows > 0) {
+            $soap = $resultSoap->fetch_assoc();
+        } else {
+            echo "<script>alert('SOAP notes not found');</script>";
+            header("Location: patient_list.php");
+            exit();
+        }
     }
-}
 
 ?>
 

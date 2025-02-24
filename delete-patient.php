@@ -2,6 +2,15 @@
 
     include "db-connection.php";
 
+     // Start the session
+    session_start();
+
+    // Check if the user is logged in
+    if (!isset($_SESSION['username'])) {
+        header("Location: login.php");
+        exit();
+    }
+
     // Get the patient id from the URL
     if($_SERVER['REQUEST_METHOD'] == 'GET') {
         $patient_id = $_GET['id'];

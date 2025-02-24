@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,6 +81,10 @@
 <?php
 // PHP code for login (optional)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    session_start();
+    $_SESSION['username'] = $_POST['username'];
+
     // Connection to database
     include "db-connection.php";
 
