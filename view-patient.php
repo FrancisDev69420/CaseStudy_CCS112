@@ -28,7 +28,7 @@
         }
 
         // Fetch SOAP data
-        $sqlSoap = "SELECT * FROM soap_notes ORDER BY last_visit DESC LIMIT 1";
+        $sqlSoap = "SELECT * FROM soap_notes WHERE patient_id = $patient_id";
         $resultSoap = $conn->query($sqlSoap);
 
         if ($resultSoap->num_rows > 0) {
