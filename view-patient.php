@@ -133,6 +133,7 @@
 
         <div class="text-center mb-5">
             <a href="edit-patient.php?id=<?php echo $patient_id; ?>" class="btn btn-primary">Edit Patient</a>
+            <a href="edit-add-patient.php?id=<?php echo $patient_id; ?>" class="btn btn-primary">Add SOAP</a>
             <a href="patient_list.php" class="btn btn-secondary">Back to Patient List</a>
         </div>
     </div>
